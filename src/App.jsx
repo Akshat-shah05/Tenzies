@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import './App.css'
 import Dice from './components/Dice'
+import Confetti from 'react-confetti'
 
 function App() {
 
@@ -42,6 +43,10 @@ function App() {
     setDice(oldDice => oldDice.map(die => {
       return die.isHeld ? {...die} : generateNewDice()
     }))
+    if (tenzies) {
+      setTenzies(prev => !prev)
+      setDice(allNewDice())
+    }
   }
 
   // Function to hold the dice when it is clicked
@@ -63,13 +68,21 @@ function App() {
 
   return (
     <>
+      {tenzies && <Confetti />}
       <h1 className="title"> Welcome to Tenzies! </h1>
-      <h4 className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h4>
+      <h4 className="instructions">
+        {tenzies 
+        ?
+        "Congratulations!"
+        :
+        "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."
+        }
+        </h4>
       <main>
         <div className="dice--container">
           {diceElements}
         </div>
-        <button onClick={rollDice} className="roll-dice"> {tenzies ? "Roll" : "New Game"} </button>
+        <button onClick={rollDice} className="roll-dice"> {tenzies ? "New Game" : "Roll"} </button>
       </main>
     </>
   )
