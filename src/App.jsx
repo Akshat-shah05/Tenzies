@@ -11,13 +11,13 @@ function App() {
   function allNewDice() {
     let newDice = []
     for (let i = 0; i <= 9; i++) {
-      newDice.push(Math.floor(Math.random() * (7 - 1) + 1))
+      newDice.push({value: Math.floor(Math.random() * 6 + 1), isHeld: false})
     }
     return newDice
   }
 
   // Mapping over the dice array to display a <Dice /> with each num 
-  const diceElements = dice.map(die => <Dice value={die}/>)
+  const diceElements = dice.map(die => <Dice value={die.value}/>)
 
   function rollDice() {
     setDice(allNewDice())
