@@ -38,6 +38,12 @@ main {
   padding-top: 60px;
 }
 
+.instructions {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
 .roll-dice {
   background: white;
   width: 150px;
