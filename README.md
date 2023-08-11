@@ -1,8 +1,12 @@
-# React + Vite
+# A Game of Tenzies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Made Tenzies using React and vanilla css since the styling was light
+- Win by getting all ten die to be the same (hence tenzie)
 
-Currently, two official plugins are available:
+Functions
+- Roll
+- Hold Die
+- Win / Reset (comes with some cool confetti)
+- Local Storage for best record (could do firebase as well but not worth it)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Time to Build from Scratch: ~ 1 hour 45 min
