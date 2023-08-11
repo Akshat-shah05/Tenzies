@@ -44,6 +44,13 @@ main {
   font-size: 1.5rem;
 }
 
+.roll-num {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
 .roll-dice {
   background: white;
   width: 150px;
@@ -65,3 +72,4 @@ main {
 .roll-dice:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
+

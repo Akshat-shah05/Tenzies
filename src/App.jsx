@@ -12,6 +12,9 @@ function App() {
   // Winner State
   const [tenzies, setTenzies] = useState(false)
 
+  // Track number of rolls
+  const [rolls, setRolls] = useState(0)
+
   // Helper function for reusability
   function generateNewDice() {
     return {
@@ -43,9 +46,11 @@ function App() {
     setDice(oldDice => oldDice.map(die => {
       return die.isHeld ? {...die} : generateNewDice()
     }))
+    setRolls(prev => prev + 1)
     if (tenzies) {
       setTenzies(prev => !prev)
       setDice(allNewDice())
+      setRolls(0)
     }
   }
 
@@ -69,7 +74,7 @@ function App() {
   return (
     <>
       {tenzies && <Confetti />}
-      <h1 className="title"> Welcome to Tenzies! </h1>
+      <h1 className="title"> Welcome to Tenzies! {rolls} </h1>
       <h4 className="instructions">
         {tenzies 
         ?
@@ -77,7 +82,8 @@ function App() {
         :
         "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."
         }
-        </h4>
+      </h4>
+      <h5 className="roll-num">Rolls: {rolls}</h5>
       <main>
         <div className="dice--container">
           {diceElements}
